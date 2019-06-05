@@ -3,6 +3,6 @@ from .models import *
 # Register your models here.
 admin.site.register(
     {
-        Blog, Categories, Tags, Author
+        Blog, Categories, Tags, Author, Comment
     }
 )

@@ -71,25 +71,6 @@ def gallery(request):
     }
     return render(request, 'gallery.html', context)
 
-
-def blog(request):
-    posts = Blog.objects.all()
-    context = {
-        'posts': posts
-    }
-
-    return render(request, 'blog.html', context)
-
-
-def post(request, id):
-    post = get_object_or_404(Blog, id=id)
-    most_recent = Blog.objects.all().order_by('-pub_date')[0:6]
-    context = {
-        'post': post,
-        'most_recent': most_recent
-    }
-    return render(request, 'blog-details.html', context)
-
 def contact(request):
     if request.method == 'POST':
         name = request.POST['name']

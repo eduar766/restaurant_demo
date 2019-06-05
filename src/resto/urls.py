@@ -3,8 +3,8 @@ from django.conf.urls.static import static
 
 from django.contrib import admin
 from django.urls import path, include 
-from content.views import index, about, menu, gallery, blog, contact, post
-from blog.views import search
+from content.views import index, about, menu, gallery, contact
+from blog.views import search, blog, post
 
 urlpatterns = [
     path('admin/', admin.site.urls),

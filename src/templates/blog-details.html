@@ -84,6 +84,7 @@
                                 <h3>Awesome commnents</h3>
                             </div>
                             <div class="comment-box-inner fix">
+                                {% for comment in post.get_comments %}
                                 <div class="blog-comment fix">
                                     <div class="blog-comment-img">
                                         <img src="images/blog/blog-comment-1.jpg" alt="">
@@ -91,56 +92,36 @@
                                     <div class="blog-comment-desc">
                                         <div class="comment-top-box">
                                             <div class="comment-title-box">
-                                                <h5>Tarek Aziz</h5>
-                                                <p>15 Min ago</p>
+                                                <h5>{{ comment.person }}</h5>
+                                                <p>{{ comment.pub_date_comment|timesince }} ago</p>
                                             </div>
                                             <div class="comment-action-box">
-                                                <a href="#"><i class="mdi mdi-heart-outline"></i>(50)</a>
-                                                <a href="#"><i class="mdi mdi-share"></i>(20)</a>
                                             </div>
                                         </div>
                                         <div class="comment-bottom-box">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquam, quam congue dictum luctus, lacus magna congue ante, in finibus dui sapien eu dolor. Integer tincidunt suscipit erat, nec laoreet ipsum vestibulum sed. </p>
+                                            <p>{{ comment.content }}</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="blog-comment reply fix">
-                                    <div class="blog-comment-img">
-                                        <img src="images/blog/blog-comment-2.jpg" alt="">
-                                    </div>
-                                    <div class="blog-comment-desc">
-                                        <div class="comment-top-box">
-                                            <div class="comment-title-box">
-                                                <h5>Mohin patwary</h5>
-                                                <p>14 Min ago</p>
-                                            </div>
-                                                <div class="comment-action-box">
-                                                <a href="#"><i class="mdi mdi-heart-outline"></i>(50)</a>
-                                                <a href="#"><i class="mdi mdi-share"></i>(20)</a>
-                                            </div>
-                                        </div>
-                                        <div class="comment-bottom-box">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquam, quam congue dictum luctus, lacus magna congue ante, in finibus dui sapien eu dolor. </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                             <!--blog comment form start-->
                             <div class="blog-comment-form mt-40">
                                 <div class="comment-title">
                                     <h3>leave a comment</h3>
                                 </div>
-                                <form action="#">
+                                <form method="POST" action=".">
+                                    {% csrf_token %}
                                     <div class="comment-input fix">
                                         <div class="input-field">
-                                            <input type="text" placeholder="Name">
+                                            {{ form.person }}
                                         </div>
                                         <div class="input-field">
-                                            <input type="text" placeholder="E-mail">
+                                            {{ form.email }}
                                         </div>
                                     </div>
                                     <div class="textarea">
-                                        <textarea placeholder="Message"></textarea>
+                                        {{ form.content }}
                                     </div>
                                     <div class="submit">
                                         <button type="submit">Send Message</button>
