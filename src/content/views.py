@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Ingredients, Dishes, DishType, Gallery, Reservation, ContactForm
-from blog.models import Blog
+from blog.models import *
 from django.db.models import Count, Q
 from .search_db import *
 
@@ -82,7 +82,13 @@ def blog(request):
 
 
 def post(request, id):
-    return render(request, 'blog-details.html')
+    post = get_object_or_404(Blog, id=id)
+    most_recent = Blog.objects.all().order_by('-pub_date')[0:6]
+    context = {
+        'post': post,
+        'most_recent': most_recent
+    }
+    return render(request, 'blog-details.html', context)
 
 def contact(request):
     if request.method == 'POST':
