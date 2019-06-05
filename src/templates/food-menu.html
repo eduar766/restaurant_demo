@@ -1,0 +1,349 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="breadcrubs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="breadcurbs-inner text-center">
+                            <h3 class="breadcrubs-title">
+                                Food menu
+                            </h3>
+                            <ul>
+                                <li><a href="index.html">home <span>//</span>  </a></li>
+                                <li>Food menu</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Breadcrubs end-->
+        <!--Food menu section start-->
+        <div class="food_menu white-bg ptb-80">
+        	<div class="container">
+        		<div class="row">
+        			<div class="food_item_tab item1">
+        				<div class="col-md-12">
+        					<div class="food_item_box fix mb-55 text-center">
+        						<ul role="tablist">
+									<li role="presentation">
+										<a href="#breakfast" aria-controls="breakfast" data-toggle="tab">Breakfast</a>
+									</li>
+									<li role="presentation" class="active">
+										<a aria-controls="lunch" href="#lunch" data-toggle="tab">Lunch</a>
+									</li>
+									<li role="presentation">
+										<a href="#dinner" aria-controls="dinner" data-toggle="tab">Dinner</a>
+									</li>
+								</ul>
+        					</div>
+        				</div>
+        				<div class="food-item-desc">
+							<div class="col-md-12">
+								<div class="tab-content">							
+									<div role="tabpanel" class="tab-pane" id="breakfast">
+										<div class="row">
+											{% for dish in breakfast %}											
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<div class="fooder-menu-description float_left">
+													
+													<div class="single-food-item mb-30">
+														<div class="single-food-inner">
+															<div class="food-img">
+																<img src="{{ dish.picture_dish.url }}" alt="">
+															</div>
+															<div class="single-food-item-desc">
+																<div class="single-food-item-title">
+																	<h2><a href="#">{{ dish.title }}</a></h2>
+																	{% for i in dish.ingredients.all %}
+																		<span>{{ i }} </span>
+																	{% endfor%}
+																</div>
+																<div class="single-food-price">
+																	<p>${{ dish.price }}</p>
+																</div>
+															</div>	
+														</div>
+													</div>
+													
+												</div>
+											</div>	
+											{% endfor %}										
+										</div>
+									</div>
+									<div role="tabpanel" class="tab-pane" id="lunch">
+										<div class="row">
+											{% for dish in lunch %}											
+											<div class="col-md-6 col-sm-6 col-xs-12">
+												<div class="fooder-menu-description float_left">
+													
+													<div class="single-food-item mb-30">
+														<div class="single-food-inner">
+															<div class="food-img">
+																<img src="{{ dish.picture_dish.url }}" alt="">
+															</div>
+															<div class="single-food-item-desc">
+																<div class="single-food-item-title">
+																	<h2><a href="#">{{ dish.title }}</a></h2>
+																	{% for i in dish.ingredients.all %}
+																		<span>{{ i }} </span>
+																	{% endfor%}
+																</div>
+																<div class="single-food-price">
+																	<p>${{ dish.price }}</p>
+																</div>
+															</div>	
+														</div>
+													</div>
+													
+												</div>
+											</div>	
+											{% endfor %}										
+										</div>
+									</div>
+									<div role="tabpanel" class="tab-pane" id="dinner">
+											<div class="row">
+												{% for dish in dinner %}											
+												<div class="col-md-6 col-sm-6 col-xs-12">
+													<div class="fooder-menu-description float_left">
+														
+														<div class="single-food-item mb-30">
+															<div class="single-food-inner">
+																<div class="food-img">
+																	<img src="{{ dish.picture_dish.url }}" alt="">
+																</div>
+																<div class="single-food-item-desc">
+																	<div class="single-food-item-title">
+																		<h2><a href="#">{{ dish.title }}</a></h2>
+																		{% for i in dish.ingredients.all %}
+																			<span>{{ i }} </span>
+																		{% endfor%}
+																	</div>
+																	<div class="single-food-price">
+																		<p>${{ dish.price }}</p>
+																	</div>
+																</div>	
+															</div>
+														</div>
+														
+													</div>
+												</div>	
+												{% endfor %}										
+											</div>
+									</div>									
+								</div>
+							</div>
+						</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        <!--Food menu section end-->
+        
+        <!--Food menu section start-->
+        <div class="food_menu white-bg pb-80">
+        	<div class="container">
+        		<div class="row">
+        			<div class="food_item_tab item2">
+        				<div class="col-md-12">
+        					<div class="food_item_box fix mb-60 text-center">
+        						<ul>
+									<li role="presentation">
+										<a href="#dessert" aria-controls="dessert" data-toggle="tab">Dessert</a>
+									</li>
+									<li role="presentation" class="active">
+										<a aria-controls="coffee" href="#coffee" data-toggle="tab">Coffee</a>
+									</li>
+								</ul>
+        					</div>
+        				</div>
+        				<div class="food-item-desc">
+							<div class="col-md-12">
+								<div class="tab-content">
+									<div role="tabpanel" class="tab-pane" id="dessert">
+											<div class="row">
+												{% for dish in dessert %}											
+												<div class="col-md-6 col-sm-6 col-xs-12">
+													<div class="fooder-menu-description float_left">
+														
+														<div class="single-food-item mb-30">
+															<div class="single-food-inner">
+																<div class="food-img">
+																	<img src="{{ dish.picture_dish.url }}" alt="">
+																</div>
+																<div class="single-food-item-desc">
+																	<div class="single-food-item-title">
+																		<h2><a href="#">{{ dish.title }}</a></h2>
+																		{% for i in dish.ingredients.all %}
+																			<span>{{ i }} </span>
+																		{% endfor%}
+																	</div>
+																	<div class="single-food-price">
+																		<p>${{ dish.price }}</p>
+																	</div>
+																</div>	
+															</div>
+														</div>					
+													</div>
+												</div>	
+												{% endfor %}										
+											</div>
+									</div>
+									<div role="tabpanel" class="tab-pane" id="coffee">
+											<div class="row">
+												{% for dish in coffee %}											
+												<div class="col-md-6 col-sm-6 col-xs-12">
+													<div class="fooder-menu-description float_left">
+														
+														<div class="single-food-item mb-30">
+															<div class="single-food-inner">
+																<div class="food-img">
+																	<img src="{{ dish.picture_dish.url }}" alt="">
+																</div>
+																<div class="single-food-item-desc">
+																	<div class="single-food-item-title">
+																		<h2><a href="#">{{ dish.title }}</a></h2>
+																		{% for i in dish.ingredients.all %}
+																			<span>{{ i }} </span>
+																		{% endfor%}
+																	</div>
+																	<div class="single-food-price">
+																		<p>${{ dish.price }}</p>
+																	</div>
+																</div>	
+															</div>
+														</div>					
+													</div>
+												</div>	
+												{% endfor %}										
+											</div>
+									</div>
+								</div>
+							</div>
+						</div>
+                    </div>
+        		</div>
+        	</div>
+        </div>
+        <!--Food menu section end-->
+        <!--Food menu section start-->
+        <div class="food_menu white-bg pb-80">
+        	<div class="container">
+        		<div class="row">
+        			<div class="food_item_tab item3">
+        				<div class="col-md-12">
+        					<div class="food_item_box fix mb-60 text-center">
+        						<ul>
+									<li role="presentation">
+										<a href="#juice" aria-controls="juice" data-toggle="tab">Juice</a>
+									</li>
+									<li role="presentation">
+										<a aria-controls="soft" href="#soft" data-toggle="tab">Soft Drink</a>
+									</li>		
+									<li role="presentation" class="active">
+										<a aria-controls="hard" href="#hard" data-toggle="tab">Hard Drink</a>
+									</li>
+								</ul>
+                           
+                            </div>
+        				</div>
+        				<div class="food-item-desc">
+							<div class="col-md-12">
+								<div class="tab-content">
+									<div role="tabpanel" class="tab-pane" id="juice">
+											<div class="row">
+												{% for dish in juice %}											
+												<div class="col-md-6 col-sm-6 col-xs-12">
+													<div class="fooder-menu-description float_left">
+														
+														<div class="single-food-item mb-30">
+															<div class="single-food-inner">
+																<div class="food-img">
+																	<img src="{{ dish.picture_dish.url }}" alt="">
+																</div>
+																<div class="single-food-item-desc">
+																	<div class="single-food-item-title">
+																		<h2><a href="#">{{ dish.title }}</a></h2>
+																		{% for i in dish.ingredients.all %}
+																			<span>{{ i }} </span>
+																		{% endfor%}
+																	</div>
+																	<div class="single-food-price">
+																		<p>${{ dish.price }}</p>
+																	</div>
+																</div>	
+															</div>
+														</div>					
+													</div>
+												</div>	
+												{% endfor %}										
+											</div>
+									</div>
+									<div role="tabpanel" class="tab-pane" id="soft">
+											<div class="row">
+												{% for dish in soft %}											
+												<div class="col-md-6 col-sm-6 col-xs-12">
+													<div class="fooder-menu-description float_left">
+														
+														<div class="single-food-item mb-30">
+															<div class="single-food-inner">
+																<div class="food-img">
+																	<img src="{{ dish.picture_dish.url }}" alt="">
+																</div>
+																<div class="single-food-item-desc">
+																	<div class="single-food-item-title">
+																		<h2><a href="#">{{ dish.title }}</a></h2>
+																		{% for i in dish.ingredients.all %}
+																			<span>{{ i }} </span>
+																		{% endfor%}
+																	</div>
+																	<div class="single-food-price">
+																		<p>${{ dish.price }}</p>
+																	</div>
+																</div>	
+															</div>
+														</div>					
+													</div>
+												</div>	
+												{% endfor %}										
+											</div>
+									</div>
+									<div role="tabpanel" class="tab-pane" id="hard">
+											<div class="row">
+												{% for dish in hard %}											
+												<div class="col-md-6 col-sm-6 col-xs-12">
+													<div class="fooder-menu-description float_left">
+														
+														<div class="single-food-item mb-30">
+															<div class="single-food-inner">
+																<div class="food-img">
+																	<img src="{{ dish.picture_dish.url }}" alt="">
+																</div>
+																<div class="single-food-item-desc">
+																	<div class="single-food-item-title">
+																		<h2><a href="#">{{ dish.title }}</a></h2>
+																		{% for i in dish.ingredients.all %}
+																			<span>{{ i }} </span>
+																		{% endfor%}
+																	</div>
+																	<div class="single-food-price">
+																		<p>${{ dish.price }}</p>
+																	</div>
+																</div>	
+															</div>
+														</div>					
+													</div>
+												</div>	
+												{% endfor %}										
+											</div>
+									</div>
+								</div>
+							</div>
+						</div>
+                    </div>
+        		</div>
+        	</div>
+        </div>
+{% endblock content %}

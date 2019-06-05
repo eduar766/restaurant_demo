@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="breadcrubs ptb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="breadcurbs-inner text-center">
+                            <h3 class="breadcrubs-title">
+                               Our gallery
+                            </h3>
+                            <ul>
+                                <li><a href="index.html">home <span>//</span>  </a></li>
+                                <li>our gallery</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Breadcrubs end-->
+        <!--Our gallery start-->
+        <div class="our_gallery ptb-80">
+            <div class="bg-img-1">
+                <div class="container">
+                    <div class="row">
+                        {% for gal in gallery %}
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="single-gallery-img mb-30">
+                                <a href="{{ gal.item.url }}">
+                                    <img src="{{ gal.item.url }}" alt="">
+                                    <div class="single-gallery-hover">
+                                        <span><i class="fa fa-search-plus"></i></span>
+                                    </div>
+                                </a>
+                            </div>   
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock content %}

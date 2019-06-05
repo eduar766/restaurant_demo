@@ -1,0 +1,67 @@
+{% load static %}
+
+<div class="header sticky-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-3 col-xs-6">
+                <div class="logo">
+                    <a href="{% url 'index' %}">
+                        <img src="{% static 'images/logo/logo.png' %}" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-10 col-sm-9 col-xs-6">
+                <div class="mgea-full-width">
+                    <div class="header-right">
+                        <div class="header-menu hidden-sm hidden-xs">
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="{% url 'index' %}">Home</a></li>
+                                    <li><a href="{% url 'about' %}">about</a></li>
+                                    <li><a href="{% url 'menu' %}">Menu</a></li>
+                                    <li><a href="{% url 'gallery' %}">gallery</a></li>
+                                    <li><a href="{% url 'blog' %}">blog</a></li>
+                                    <li><a href="{% url 'contact' %}">contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="search">
+                            <div class="search-inner">
+                                <a href="#"><i class="mdi mdi-magnify"></i></a>
+                            </div>
+                        </div>	
+                    </div>
+                    <div class="search-inside" style="display: none;">
+                        <a href="#" class="search-close"><i class="mdi mdi-close"></i></a>
+                        <div class="search-overlay"></div>
+                        <div class="searchbar-inner">
+                            <div class="search">
+                                <form action="#">
+                                    <input type="search" placeholder="Search here"><button type="submit"><i class="mdi mdi-magnify"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile menu start -->
+    <div class="mobile-menu-area hidden-lg hidden-md">
+        <div class="container">
+            <div class="col-md-12">
+                <nav id="dropdown">
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">about</a></li>
+                        <li><a href="{% url 'menu' %}">Menu</a></li>
+                        <li><a href="{% url 'gallery' %}">gallery</a></li>
+                        <li><a href="{% url 'blog' %}">blog</a></li>
+                        <li><a href="{% url 'contact' %}">contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile menu end -->
+</div>
