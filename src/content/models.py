@@ -43,6 +43,7 @@ class Gallery(models.Model):
     def __str__(self):
         return self.name
 
+
 class Reservation(models.Model):
     full_name = models.CharField(max_length=150)
     email = models.EmailField()
@@ -50,6 +51,7 @@ class Reservation(models.Model):
 
     def __str__(self):
         return self.full_name
+
 
 
 class ContactForm(models.Model):

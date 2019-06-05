@@ -44,8 +44,10 @@ def index(request):
 
     return render(request, 'index.html', context)
 
+
 def about(request):
     return render(request, 'about-us.html')
+
 
 def menu(request):
     context = {
@@ -61,6 +63,7 @@ def menu(request):
     }
     return render(request, 'food-menu.html', context)
 
+
 def gallery(request):
     gallery = Gallery.objects.all()
     context = {
@@ -68,8 +71,18 @@ def gallery(request):
     }
     return render(request, 'gallery.html', context)
 
+
 def blog(request):
-    return render(request, 'blog.html')
+    posts = Blog.objects.all()
+    context = {
+        'posts': posts
+    }
+
+    return render(request, 'blog.html', context)
+
+
+def post(request, id):
+    return render(request, 'blog-details.html')
 
 def contact(request):
     if request.method == 'POST':
