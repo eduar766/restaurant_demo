@@ -51,6 +51,16 @@ class Blog(models.Model):
             'id': self.id
         })
 
+    def get_update_url(self):
+        return reverse('post-update', kwargs={
+            'id': self.id
+        })
+    
+    def get_delete_url(self):
+        return reverse('post-delete', kwargs={
+            'id': self.id
+        })
+
     @property
     def get_comments(self):
         return self.comments.all().order_by('-pub_date_comment')
@@ -60,7 +70,7 @@ class Comment(models.Model):
     person = models.CharField(max_length=150)
     pub_date_comment = models.DateField(auto_now_add=True)
     email = models.EmailField()
-    content = models.TextField()
+    com = models.TextField()
     post = models.ForeignKey(Blog, related_name="comments", on_delete=models.CASCADE)
 
     def __str__(self):

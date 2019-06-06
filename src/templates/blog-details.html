@@ -52,6 +52,9 @@
                                 <p><i class="mdi mdi-heart-outline"></i>{{ post.like }}</p>
                                 <p><i class="mdi mdi-comment-multiple-outline"></i>{{ post.comment_count }}</p>
                                 <p><i class="mdi mdi-share-variant"></i>{{ post.shares }}</p>
+                                <p><a href="{% url 'post-update' id=post.id %}">Update</a></p>
+                                <p><a style="color:red;" href="{% url 'post-delete' id=post.id %}">Delete</a></p>
+                                    
                             </div>
                             <div class="blog-share-social">
                                 <a href="#"><i class="mdi mdi-facebook"></i></a>
@@ -99,7 +102,7 @@
                                             </div>
                                         </div>
                                         <div class="comment-bottom-box">
-                                            <p>{{ comment.content }}</p>
+                                            <p>{{ comment.com }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -121,7 +124,7 @@
                                         </div>
                                     </div>
                                     <div class="textarea">
-                                        {{ form.content }}
+                                        {{ form.com }}
                                     </div>
                                     <div class="submit">
                                         <button type="submit">Send Message</button>
